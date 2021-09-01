@@ -163,13 +163,18 @@ trait TagHelpers
 
     /**
      * 设置标签属性
-     * @param string $name 属性名
-     * @param string $value 属性值
+     * @param string|array $name 属性名
+     * @param ?string $value 属性值
      * @return $this
      */
-    public function setAttributes(string $name,string $value):self
+    public function setAttributes($name,?string $value=null):self
     {
+        if (is_string($name)){
         $this->attributes[$name] = $value;
+        }elseif (is_array($name))
+        {
+            $this->attributes = array_merge($this->attributes,$name);
+        }
         return $this;
     }
 

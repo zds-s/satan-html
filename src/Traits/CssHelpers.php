@@ -9,6 +9,8 @@
 
 namespace SaTan\Html\Traits;
 
+use SaTan\Html\Css;
+
 /**
  * css帮助类
  */
@@ -23,14 +25,11 @@ trait CssHelpers
                 /**
                  * @var $this TagHelpers|CssHelpers
                  */
+                $css = new Css($this->classList,$this->styles);
                 //合并class属性
-                $this->attributes['class'] = ($this->attributes['class']?:'').implode(' ',$this->classList);
+                $this->attributes['class'] = ($this->attributes['class']?:'').' '.$css->getClassListToString();
                 //合并style样式
-                $styles = array_map(function ($name,$value){
-                    $value  = (substr($value,-1)!=';')?$value.';':$value;
-                    return $name.':'.$value;
-                },array_keys($this->styles),array_values($this->styles));
-                $this->attributes['style'] = ($this->attributes['style']?:'').implode("\r\n",$styles);
+                $this->attributes['style'] = ($this->attributes['style']?:'').$css->getStylesToString();
             });
         }
         return $this;

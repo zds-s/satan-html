@@ -47,11 +47,11 @@ interface Tag
 
     /**
      * 设置标签属性
-     * @param string $name 属性名
-     * @param string $value 属性值
+     * @param string|array $name 属性名
+     * @param ?string $value 属性值
      * @return $this
      */
-    public function setAttributes(string $name,string $value):self;
+    public function setAttributes($name,?string $value=null):self;
 
     /**
      * 删除属性
