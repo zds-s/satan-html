@@ -24,4 +24,118 @@ class Form extends \SaTan\Html\Fast
         $input->setAttributes($attributes);
         return $input;
     }
+
+    /**
+     * 生成checkbox input框
+     * @param string $name
+     * @param array $checkbox_list
+     * @param array $extras
+     * @return string
+     */
+    public function checkbox(string $name='',array $checkbox_list=[],array $extras=[]):string
+    {
+        $html ='';
+        foreach ($checkbox_list as $value)
+        {
+            $html .= $this->input(array_merge(compact('value','name'),$extras))
+                ->setAttributes('type',__FUNCTION__)->render();
+        }
+        return $html;
+    }
+
+    /**
+     * 生成radio input框
+     * @param string $name
+     * @param array $radio_list
+     * @param array $extras
+     * @return string
+     */
+    public function radio(string $name='',array $radio_list=[],array $extras=[]):string
+    {
+        $html ='';
+        foreach ($radio_list as $value)
+        {
+            $html .= $this->input(array_merge(compact('value','name'),$extras))
+                ->setAttributes('type',__FUNCTION__)->render();
+        }
+        return $html;
+    }
+
+    /**
+     * 生成一个hidden标签
+     * @param string $name
+     * @param string $value
+     * @param array $extras
+     * @return string
+     */
+    public function hidden(string $name,string $value,array $extras=[]):string
+    {
+        return $this->input(array_merge(compact('name','value'),$extras))
+            ->setAttributes('type',__FUNCTION__)->render();
+    }
+
+    /**
+     * 生成一个密码输入框
+     * @param string $name
+     * @param array $extras
+     * @return string
+     */
+    public function password(string $name,array $extras=[]):string
+    {
+        return $this->input(array_merge(compact('name'),$extras))
+            ->setAttributes('type',__FUNCTION__)->render();
+    }
+
+    /**
+     * 生成一个reset输入框
+     * @param string $name
+     * @param string $value
+     * @param array $extras
+     * @return string
+     */
+    public function reset(string $name,string $value,array $extras=[]):string
+    {
+        return $this->input(array_merge(compact('name','value'),$extras))
+            ->setAttributes('type',__FUNCTION__)->render();
+    }
+
+    /**
+     * 生成一个submit input框
+     * @param string $name
+     * @param string $value
+     * @param array $extras
+     * @return string
+     */
+    public function submit(string $name,string $value,array $extras=[]):string
+    {
+        return $this->input(array_merge(compact('name','value'),$extras))
+            ->setAttributes('type',__FUNCTION__)->render();
+    }
+
+    /**
+     * 生成一个text input框
+     * @param string $name
+     * @param string $value
+     * @param array $extras
+     * @return string
+     */
+    public function text(string $name,string $value,array $extras=[]):string
+    {
+        return $this->input(array_merge(compact('name','value'),$extras))
+            ->setAttributes('type',__FUNCTION__)->render();
+    }
+
+    /**
+     * 生成一个file input框
+     * @param string $name
+     * @param array $extras
+     * @return string
+     */
+    public function file(string $name,array $extras=[]):string
+    {
+        return $this->input(array_merge(compact('name'),$extras))
+            ->setAttributes('type',__FUNCTION__)->render();
+    }
+
+
 }
