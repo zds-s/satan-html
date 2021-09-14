@@ -14,9 +14,11 @@ trait NameHelpers
     /**
      * 设置name属性
      * @param $name
+     * @return self
      */
-    public function name($name)
+    public function name($name):self
     {
         $this->attributes[__FUNCTION__] = $name;
+        return $this;
     }
 }

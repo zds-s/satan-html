@@ -21,4 +21,12 @@ class Tag implements \SaTan\Html\Contracts\Tag,Css,TagMake
 {
     use TagHelpers,CssHelpers;
 
+    /**
+     * 生成html代码
+     * @return string
+     */
+    public function toHtml():string
+    {
+        return $this->render();
+    }
 }

@@ -219,7 +219,7 @@ trait TagHelpers
                 $content = (string)$content;
             }
         }
-        $this->content =$this->content. $is_coding?htmlentities($content):$content;
+        $this->content =$this->content. ($is_coding?htmlentities($content):$content);
         return $this;
     }
 
@@ -291,7 +291,7 @@ trait TagHelpers
      */
     public function flush():self
     {
-        return new static;
+        return static::make();
     }
 
     /**
